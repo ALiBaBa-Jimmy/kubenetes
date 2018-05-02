@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: registry-pd
+spec:
+  containers:
+  - image: mirror.jd.com/ovs/registry:latest 
+    name: test-container
+    command: ["sleep"]
+    args: ["9999d"]
+    volumeMounts:
+    - mountPath: /mnt
+      name: nfs-pvc
+  volumes:
+  - name: nfs-pvc
+    persistentVolumeClaim:
+        claimName: test-claim
