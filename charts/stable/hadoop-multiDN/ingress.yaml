@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hadoop
+  namespace: hdfs-play
+spec:
+  rules:
+  - host: namenode.play.exp.ovs.jd.local
+    http:
+      paths:
+      - backend:
+          serviceName: hdfs-play-hadoop-hdfs-nn
+          servicePort: 50070

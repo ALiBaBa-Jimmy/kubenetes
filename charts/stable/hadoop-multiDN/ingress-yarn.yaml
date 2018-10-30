@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hadoop-yarn
+  namespace: hdfs-play
+spec:
+  rules:
+  - host: yarnui.play.exp.ovs.jd.local
+    http:
+      paths:
+      - backend:
+          serviceName: hdfs-play-hadoop-yarn-ui
+          servicePort: 8088

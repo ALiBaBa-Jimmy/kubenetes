@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sparkui
+  namespace: spark-s3
+spec:
+  rules:
+  - host: sparkui.spark-s3.jd.local
+    http:
+      paths:
+      - backend:
+          serviceName: spark-s3-webui
+          servicePort: 8080
